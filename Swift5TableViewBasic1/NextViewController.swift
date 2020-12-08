@@ -19,6 +19,12 @@ class NextViewController: UIViewController {
     
     }
     
+  // ナビバーを表示
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    navigationController?.isNavigationBarHidden = false
+  }
 
     /*
     // MARK: - Navigation

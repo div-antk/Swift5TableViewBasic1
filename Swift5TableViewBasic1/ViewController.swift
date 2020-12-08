@@ -23,6 +23,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
   }
   
+  // viewDidLoadは1度しか呼ばれないが、viewWillAppearは画面が表示されるたびに呼ばれる
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    navigationController?.isNavigationBarHidden = true
+  }
+  
   // セクションの中のセルの数（必須）
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return textArray.count
