@@ -9,10 +9,14 @@ import UIKit
 
 class NextViewController: UIViewController {
 
-    override func viewDidLoad() {
+  var toDoString = String()
+  @IBOutlet weak var todoLabel: UILabel!
+  
+  override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    todoLabel.text = toDoString
+    
     }
     
 
