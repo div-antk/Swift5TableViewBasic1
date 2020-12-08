@@ -33,6 +33,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    // タップしたときに、その配列の番号の中身を取り出して値を渡す
+    
+    let nextVC = storyboard?.instantiateViewController(identifier: "next") as! NextViewController
+    
+    // タップされた場所の要素を渡す
+    nextVC.toDoString = textArray[indexPath.row]
+    
+    // 画面遷移する
+    navigationController?.pushViewController(nextVC, animated: true)
   }
   
   
@@ -61,7 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     textField.resignFirstResponder()
     textField.text = ""
     
-    
+    // セクションの数、セクションの中のセルの数、セルを返す作業をもう一度行う
     tableView.reloadData()
     
     return true
