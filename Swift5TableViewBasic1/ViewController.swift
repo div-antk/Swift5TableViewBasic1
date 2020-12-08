@@ -23,12 +23,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
   }
   
-  
-  
-  
   // セクションの中のセルの数（必須）
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return textArray.count
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,12 +33,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    <#code#>
   }
   
   
-  // セルの中身（必須）
+  // セルを構築する（必須）
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    
+    // textArrayの中のrow番目
+    cell.textLabel?.text = textArray[indexPath.row]
+    cell.imageView!.image = UIImage(named: "checkImage")
+    
     return cell
   }
   
@@ -57,6 +60,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // キーボードを閉じる
     textField.resignFirstResponder()
     textField.text = ""
+    
+    
     tableView.reloadData()
     
     return true
