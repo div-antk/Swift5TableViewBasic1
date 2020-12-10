@@ -16,15 +16,17 @@ class NextViewController: UIViewController {
         super.viewDidLoad()
 
     todoLabel.text = toDoString
+    navigationController?.isNavigationBarHidden = false
+
     
     }
     
   // ナビバーを表示
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    navigationController?.isNavigationBarHidden = false
-  }
+//  override func viewWillAppear(_ animated: Bool) {
+//    super.viewWillAppear(animated)
+//
+//    navigationController?.isNavigationBarHidden = false
+//  }
 
     /*
     // MARK: - Navigation

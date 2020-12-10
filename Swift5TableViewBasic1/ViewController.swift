@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     tableView.dataSource = self
     textField.delegate = self
 
+
   }
   
   // viewDidLoadは1度しか呼ばれないが、viewWillAppearは画面が表示されるたびに呼ばれる
@@ -57,6 +58,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     
+    cell.selectionStyle = .none
+
     // textArrayの中のrow番目
     cell.textLabel?.text = textArray[indexPath.row]
     cell.imageView!.image = UIImage(named: "checkImage")
